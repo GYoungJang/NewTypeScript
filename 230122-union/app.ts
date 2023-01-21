@@ -1,12 +1,16 @@
 // union 타입은 서로 다른 종류의 값을 사용해야 하는 경우에 사용
 // 유니언 타입을 사용하면 코드에 적용한 매개변수를 보다 유연하게 사용할 수 있음.
 
+// type alias
+type Combinable = number | string;
+type ConversionDescriptor = 'as-number' | 'as-text';
+
 function combine(
   input1: number | string,
-  input2: number | string,
+  input2: Combinable,
   // 유니언 타입과 리터럴 타입 결합
   // 다른 문자열 값은 허용하지 않음
-  resultConversion: 'as-number' | 'as-text'
+  resultConversion: ConversionDescriptor
 ) {
   // 타입스크립트는 유니언 타입만 이해하고
   // 유니언 타입 내에 무엇이 있는지 모름..
